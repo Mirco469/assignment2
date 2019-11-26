@@ -5,3 +5,5 @@ jdk: openjdk8
 language: java
 script: "mvn clean install"
 sudo: required
+after_success:
+  - mvn clean test jacoco:report coveralls:report
