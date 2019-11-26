@@ -7,5 +7,36 @@
 	<module name="Header">
 		<property name="header" value="////////////////////////////////////////////////////////////////////\n// [Mirco] [Giardina] [1136663]\n////////////////////////////////////////////////////////////////////" />
 	</module>
+	<module name="FileLength">
+		<property name="max" value="1500"/>
+	</module>
+	<module name="FileTabCharacter">
+		<property name="eachLine" value="false"/>
+	</module>
+	<module name="TreeWalker">
+		<module name="BooleanExpressionComplexity">
+			<property name="max" value="7"/>
+		</module>
+		<module name="CyclomaticComplexity">
+			<property name="max" value="15"/>
+		</module>
+		<module name="LineLength">
+			<property name="max" value="120"/>
+		</module>
+		<module name="MethodLength">
+			<property name="tokens" value="METHOD_DEF"/>
+			<property name="max" value="60"/>
+		</module>
+		<module name="EmptyCatchBlock">
+			<property name="exceptionVariableName" value="expected|ignore"/>
+		</module>
+		<module name="AvoidStarImport"/>
+		<module name="IllegalImport">
+			<property name="illegalPkgs" value="java.sql"/>
+		</module>
+		<module name="NeedBraces">
+			<property name="tokens" value="LITERAL_IF, LITERAL_ELSE"/>
+		</module>
+	</module>
 </module>
 
