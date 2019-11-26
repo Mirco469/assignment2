@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.11.2">
+<file name="C:\Users\Mirco\Desktop\assignment2\assignment2\sandwich-shop-manager\src\main\java\it\unipd\tos\App.java">
+<error line="1" severity="error" message="Line does not match expected header line of &apos;////////////////////////////////////////////////////////////////////&apos;." source="com.puppycrawl.tools.checkstyle.checks.header.HeaderCheck"/>
+</file>
+</checkstyle>

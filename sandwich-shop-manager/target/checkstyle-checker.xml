@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN" "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+<module name="Checker">
+	<property name="fileExtensions" value="java" />
+	<property name="severity" value="error"/>
+
+	<module name="Header">
+		<property name="header" value="////////////////////////////////////////////////////////////////////\n// [Mirco] [Giardina] [1136663]\n////////////////////////////////////////////////////////////////////" />
+	</module>
+</module>
+
