@@ -29,8 +29,9 @@ public class BillTest {
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Panini, "Primavera", 3.12));
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Fritti, "Patatine", 2.71));
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Bevande, "Acqua", 1.41));
+        listaProdotti.add(new MenuItem(MenuItem.Prodotti.Fritti, "Gamberi", 5));
         double tot = conto.getOrderPrice(listaProdotti);
-        assertEquals(7.24, tot,0.0);
+        assertEquals(12.24, tot,0.0);
     }
     
     //Issue 2
