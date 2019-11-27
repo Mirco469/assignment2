@@ -13,7 +13,7 @@ import java.util.List;
 public class BillTest {
 
     @Test
-    public void CalcoloTotaleConto() throws TakeAwayBillException {
+    public void CalcoloTotaleContoConAlcuniProdotti() throws TakeAwayBillException {
         Bill conto = new Bill();
         List<MenuItem> listaProdotti = new ArrayList<MenuItem>();
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Panini, "Filè", 3.12));
