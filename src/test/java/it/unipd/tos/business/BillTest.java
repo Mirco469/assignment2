@@ -42,7 +42,7 @@ public class BillTest {
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Panini, "Invarianti", 7.41));
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Panini, "Please", 3.71));
         double tot = conto.getOrderPrice(listaProdotti);
-        //22.78 - 1.42/2
+        //21.78 - 0.71
         assertEquals(21.07, tot,0.0);
     }
 }
