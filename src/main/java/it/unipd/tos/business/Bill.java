@@ -15,6 +15,7 @@ public class Bill implements TakeAwayBill{
         double tot = 0; //Totale conto
         int numPanini = 0;  //Numero panini comprati in totale
         double minPanini = Double.MAX_VALUE; //Il panino che costa meno
+        double totBevande = 0; //Totale dei prodotti di bevande
         
         for(MenuItem p : itemsOrdered)
         {
@@ -27,10 +28,18 @@ public class Bill implements TakeAwayBill{
                     minPanini = p.getPrice();
                 }
             }
+            else if(p.getItemType()==MenuItem.Prodotti.Bevande)
+            {
+                totBevande += p.getPrice();
+            }
         }
         if(numPanini > 5)
         {
             tot -= minPanini/2;
+        }
+        if(tot-totBevande > 50)
+        {
+            tot -= tot*0.1;
         }
         return tot;
     }
