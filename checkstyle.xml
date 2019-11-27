@@ -11,7 +11,7 @@
 		<property name="max" value="1500"/>
 	</module>
 	<module name="FileTabCharacter">
-		<property name="eachLine" value="false"/>
+		<property name="eachLine" value="true"/>
 	</module>
 	<module name="TreeWalker">
 		<module name="BooleanExpressionComplexity">
