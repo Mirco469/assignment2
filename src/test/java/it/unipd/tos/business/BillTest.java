@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import it.unipd.tos.business.exception.TakeAwayBillException;
 import it.unipd.tos.model.MenuItem;
@@ -93,5 +94,22 @@ public class BillTest {
         double tot = conto.getOrderPrice(listaProdotti);
         //Commissione di 0.5
         assertEquals(9.5, tot,0.0);
+    }
+    
+    //Issue 4
+    @org.junit.Rule
+    public ExpectedException error= ExpectedException.none();
+    
+    @Test
+    public void testNonPiuDi30Elementi()
+    {
+        error.expect(TakeAwayBillException.class);
+        error.expectMessage("Errore, ordine contiene più di 30 elementi");
+        
+        for(int i=0;i<31;i++)
+        {
+            listaProdotti.add(new MenuItem(MenuItem.Prodotti.Bevande, "Filè"+i, 4));
+        }
+        //Mai raggiunta
     }
 }
