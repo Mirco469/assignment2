@@ -4,7 +4,7 @@
 package it.unipd.tos.model;
 
 public class MenuItem {
-    enum Prodotti {
+    public enum Prodotti {
         Panini, Fritti, Bevande
     }
 
