@@ -25,17 +25,18 @@ public class BillTest {
     
     // Issue 1
     @Test
-    public void CalcoloTotaleContoConAlcuniProdotti() throws TakeAwayBillException {
+    public void testCalcoloTotaleContoConAlcuniProdotti() throws TakeAwayBillException {
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Panini, "Primavera", 3.12));
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Fritti, "Patatine", 2.71));
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Bevande, "Acqua", 1.41));
+        listaProdotti.add(new MenuItem(MenuItem.Prodotti.Fritti, "Gamberi", 5));
         double tot = conto.getOrderPrice(listaProdotti);
-        assertEquals(7.24, tot,0.0);
+        assertEquals(12.24, tot,0.0);
     }
     
     //Issue 2
     @Test
-    public void ScontoSulPaninoMenoCaroSeOrdinatiPiuDiCinquePanini() throws TakeAwayBillException
+    public void testScontoSulPaninoMenoCaroSeOrdinatiPiuDiCinquePanini() throws TakeAwayBillException
     {
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Panini, "Filè", 3.12));
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Panini, "is", 2.71));
@@ -50,7 +51,7 @@ public class BillTest {
     
     //Issue 3
     @Test
-    public void Sconto10PercentoSeTotaleTraFrittiEPaniniSupera50Euro() throws TakeAwayBillException
+    public void testSconto10PercentoSeTotaleTraFrittiEPaniniSupera50Euro() throws TakeAwayBillException
     {
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Panini, "Filè", 4));
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Panini, "is", 5));
@@ -67,7 +68,7 @@ public class BillTest {
     }
     
     @Test
-    public void NienteSconto10PercentoSeTotaleSupera50EuroUsandoBevande() throws TakeAwayBillException
+    public void testNienteSconto10PercentoSeTotaleSupera50EuroUsandoBevande() throws TakeAwayBillException
     {
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Panini, "Filè", 4));
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Panini, "is", 5));
@@ -81,5 +82,16 @@ public class BillTest {
         double tot = conto.getOrderPrice(listaProdotti);
         //34 euro di cibo, 31 euro di bevande = 65 (niente sconto)
         assertEquals(65, tot,0.0);
+    }
+    
+    //Issue 5
+    @Test
+    public void testCommissioneSeImportoMinoreDi10Euro() throws TakeAwayBillException
+    {
+        listaProdotti.add(new MenuItem(MenuItem.Prodotti.Panini, "Filè", 4));
+        listaProdotti.add(new MenuItem(MenuItem.Prodotti.Bevande, "is", 5));
+        double tot = conto.getOrderPrice(listaProdotti);
+        //Commissione di 0.5
+        assertEquals(9.5, tot,0.0);
     }
 }

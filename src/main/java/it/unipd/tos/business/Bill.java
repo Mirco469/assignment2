@@ -33,6 +33,10 @@ public class Bill implements TakeAwayBill{
                 totBevande += p.getPrice();
             }
         }
+        if(tot < 10)
+        {
+            tot += 0.5;
+        }
         if(numPanini > 5)
         {
             tot -= minPanini/2;
