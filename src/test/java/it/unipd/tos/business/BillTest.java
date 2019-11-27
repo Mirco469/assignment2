@@ -60,10 +60,10 @@ public class BillTest {
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Panini, "Please", 15));
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Bevande, "Please", 6));
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Fritti, "Please", 7));
-        listaProdotti.add(new MenuItem(MenuItem.Prodotti.Panini, "No", 9));
+        listaProdotti.add(new MenuItem(MenuItem.Prodotti.Fritti, "No", 9));
         double tot = conto.getOrderPrice(listaProdotti);
-        //59 - 5.9
-        assertEquals(53.1, tot,0.0);
+        //65 - 65*0.1 (lo sconto del 10% si applica a tutto il totale)
+        assertEquals(58.5, tot,0.0);
     }
     
     @Test
