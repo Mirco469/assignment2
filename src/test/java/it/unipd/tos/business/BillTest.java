@@ -112,11 +112,22 @@ public class BillTest {
     //Altri test
     
     @Test
-    public void testOrdineSenzaListaProdotti() throws TakeAwayBillException
+    public void testOrdineConListaNull() throws TakeAwayBillException
     {
         error.expect(IllegalArgumentException.class);
         error.expectMessage("Lista prodotti vuota");
+        
         conto.getOrderPrice(null);
+        //Mai raggiunta
+    }
+    
+    @Test
+    public void testOrdineConListaProdottiSenzaProdotti() throws TakeAwayBillException
+    {
+        error.expect(IllegalArgumentException.class);
+        error.expectMessage("Lista prodotti vuota");
+        
+        conto.getOrderPrice(listaProdotti);
         //Mai raggiunta
     }
     
@@ -133,7 +144,7 @@ public class BillTest {
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Fritti, "Invarianti", 10));
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Fritti, "Invarianti", 10));
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Bevande, "Acqua", 3));
-        //54.71 - 0.71 = 54.00 => 54.00 - 54.00*0.1 = 48.60
+        //54.71 - 0.71 = 54.00 (sconto più di 5 panini) => 54.00 - 54.00*0.1 = 48.60 (sconto più di 50 euro tra panini e fritti)
         assertEquals(48.6,conto.getOrderPrice(listaProdotti),0.0);
     }
 }
