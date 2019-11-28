@@ -22,10 +22,6 @@ public class MenuItem {
         return this.itemType;
     }
 
-    public String getName() {
-        return this.name;
-    }
-
     public double getPrice() {
         return this.prince;
     }

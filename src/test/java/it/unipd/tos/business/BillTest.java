@@ -82,7 +82,6 @@ public class BillTest {
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Bevande, "Please", 6));
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Fritti, "Please", 7));
         listaProdotti.add(new MenuItem(MenuItem.Prodotti.Panini, "No", 9));
-        listaProdotti.get(0).getName(); //Code coverage 100%
         tot = conto.getOrderPrice(listaProdotti);
         //34 euro di cibo, 31 euro di bevande = 65 (niente sconto)
         assertEquals(65, tot,0.0);
