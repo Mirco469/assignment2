@@ -17,6 +17,10 @@ public class Bill implements TakeAwayBill{
         double minPanini = Double.MAX_VALUE; //Il panino che costa meno
         double totBevande = 0; //Totale dei prodotti di bevande
         
+        if(itemsOrdered == null)
+        {
+            throw new IllegalArgumentException("Lista prodotti vuota");
+        }
         if(itemsOrdered.size()>30)
         {
             throw new TakeAwayBillException("Errore, ordine contiene più di 30 elementi");

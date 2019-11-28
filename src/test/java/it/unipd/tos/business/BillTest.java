@@ -115,4 +115,15 @@ public class BillTest {
         tot = conto.getOrderPrice(listaProdotti);
         //Mai raggiunta
     }
+    
+    //Altri test
+    
+    @Test
+    public void testOrdineSenzaListaProdotti() throws TakeAwayBillException
+    {
+        error.expect(IllegalArgumentException.class);
+        error.expectMessage("Lista prodotti vuota");
+        conto.getOrderPrice(null);
+        //Mai raggiunta
+    }
 }

@@ -6,14 +6,18 @@ package it.unipd.tos.model;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-
 public class MenuItemTest {
 
-    @Test(expected = IllegalArgumentException.class)
+    @org.junit.Rule
+    public ExpectedException error= ExpectedException.none();
+    
+    @Test
     public void testAggiuntaProdottiPrezzoNegativo()
     {
-        MenuItem item = new MenuItem(MenuItem.Prodotti.Panini, "Primavera", -3.12);
-        //Mai raggiunto
+        error.expect(IllegalArgumentException.class);
+        error.expectMessage("Prezzo negativo");
+        new MenuItem(MenuItem.Prodotti.Panini, "Primavera", -3.12);
+        //Mai raggiunta
     }
 
 }
