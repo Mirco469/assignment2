@@ -13,6 +13,10 @@ public class MenuItem {
     private double prince;
 
     public MenuItem(Prodotti itemType, String name, double price) {
+        if(price<0)
+        {
+            throw new IllegalArgumentException("Prezzo negativo");
+        }
         this.itemType = itemType;
         this.name = name;
         this.prince = price;
@@ -20,10 +24,6 @@ public class MenuItem {
 
     public Prodotti getItemType() {
         return this.itemType;
-    }
-
-    public String getName() {
-        return this.name;
     }
 
     public double getPrice() {

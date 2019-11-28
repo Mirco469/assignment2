@@ -12,11 +12,16 @@ import it.unipd.tos.model.MenuItem;
 public class Bill implements TakeAwayBill{
 
     public double getOrderPrice(List<MenuItem> itemsOrdered) throws TakeAwayBillException {
+        if(itemsOrdered == null || itemsOrdered.isEmpty())
+        {
+            throw new IllegalArgumentException("Lista prodotti vuota");
+        }
+        
         double tot = 0; //Totale conto
         int numPanini = 0;  //Numero panini comprati in totale
         double minPanini = Double.MAX_VALUE; //Il panino che costa meno
         double totBevande = 0; //Totale dei prodotti di bevande
-        
+
         if(itemsOrdered.size()>30)
         {
             throw new TakeAwayBillException("Errore, ordine contiene più di 30 elementi");
